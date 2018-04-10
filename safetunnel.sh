@@ -14,8 +14,9 @@ fi
 
 #check if user wants to install
 if [ "$#" -eq 1 ] && [ "$1" == "install" ]; then
-  echo "Installing to /etc/rc.local and /usr/sbin/safetunnel.sh"
-  sed -i "/^exit 0/i\/usr/sbin/safetunnel.sh &" /etc/rc.local
+  echo "Installing to /etc/crontab and /usr/sbin/safetunnel.sh"
+  grep '@reboot         root    /usr/sbin/safetunnel.sh &' /etc/crontab || \
+    echo '@reboot         root    /usr/sbin/safetunnel.sh &' >> /etc/crontab
   cp "$0" /usr/sbin/safetunnel.sh && chmod +x /usr/sbin/safetunnel.sh
 fi
 
