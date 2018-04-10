@@ -4,7 +4,7 @@
 VPN_PORT=53
 VPN_PROTOCOL=tcp
 VPN_IP=0.0.0.0/0
-DNS_SERVER=8.8.8.8
+DNS_SERVER=1.1.1.1
 
 #check if iptables is in the path
 if ! type "iptables" > /dev/null; then
